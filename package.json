@@ -1,0 +1,20 @@
+{
+  "name": "convert-video-to-mp4",
+  "version": "1.0.0",
+  "description": "Convert video files into mp4 format with NodeJS in Windows using FFMPEG",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node check-dependencies.js",
+    "start": "node index.js",
+    "test": "node ./test/index.js"
+  },
+  "keywords": [
+    "convert",
+    "video",
+    "mp4",
+    "ffmpeg",
+    "backend"
+  ],
+  "author": "Guilherme Rossato",
+  "license": "MIT"
+}
