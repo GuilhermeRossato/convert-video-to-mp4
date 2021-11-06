@@ -18,13 +18,12 @@ function convertVideoFileToMp4(sourceFilePath) {
     return processVideoConversion(sourceFilePath, targetFileName);
 }
 
-if (process.argv.length !== 2) {
-    if (process.argv.length !== 3) {
-        throw new Error("Expected 3 arguments, got unexpected argument count: " + process.argv.length);
-    }
-    const inputVideoFilePath = path.resolve(process.argv[2]);
+// If this script was called with a video file as parameter, such as `node convert-video-to-mp4/index.js path to video.mp4`
+// Then this piece of code will detect and run it 
+if (typeof module !== 'undefined' && !module.parent && process.argv.length > 2) {
+    const inputVideoFilePath = path.resolve(process.argv.slice(2).join(" "));
     if (!fs.existsSync(inputVideoFilePath)) {
-        throw new Error(`Video file not found at "${inputVideoFilePath}"`);
+        throw new Error(`Input video file not found at "${inputVideoFilePath}"`);
     }
     convertVideoFileToMp4(inputVideoFilePath);
 }
