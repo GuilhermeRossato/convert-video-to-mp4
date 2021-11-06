@@ -10,9 +10,6 @@ function convertVideoFileToMp4(sourceFilePath) {
     if (typeof sourceFilePath !== "string") {
         throw new Error(`Invalid parameter, expected string, got "${typeof sourceFilePath}"`);
     }
-    if (!fs.existsSync(sourceFilePath)) {
-        throw new Error(`Video file does not exist at "${sourceFilePath}"`);
-    }
     if (sourceFilePath.endsWith(".mp4")) {
         // Source is already at target type
         return;
